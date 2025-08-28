@@ -588,6 +588,25 @@ free_socket_free_elements(int is_tcp, struct netconn *conn, union lwip_sock_last
   }
 }
 
+int LWIP_GetMaxSockets()
+{
+    return NUM_SOCKETS;
+}
+
+int LWIP_GetActiveSockets()
+{
+    int i;
+    int r = 0;
+    for(i = 0; i < NUM_SOCKETS; ++i)
+    {
+        if(sockets[i].conn)
+        {
+            r++;
+        }
+    }
+    return r;
+}
+
 /** Free a socket. The socket's netconn must have been
  * delete before!
  *

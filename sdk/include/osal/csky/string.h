@@ -90,8 +90,8 @@ extern "C" {
 #define os_strncpy(d,s,n)  strncpy((char *)(d), (const char *)(s), n)
 #define os_memset(s,c,n)   memset((void *)(s), c, n)
 //#define os_memcpy(d,s,n)   memcpy((void *)(d), (const void *)(s), n)
-#define MEMCPY memcpy
-#define os_memcpy(d, s, n) MEMCPY((d), (s), (n))
+#define MEMCPYS memcpy
+#define os_memcpy(d, s, n) MEMCPYS((d), (s), (n))
 //#define os_memcpy memcpy
 #define os_memmove(d,s,n)  memmove((void *)(d), (const void *)(s), n)
 #define os_sprintf(s, ...) sprintf((char *)(s), __VA_ARGS__)

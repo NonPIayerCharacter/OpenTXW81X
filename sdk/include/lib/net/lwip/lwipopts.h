@@ -167,18 +167,18 @@ extern void hw_memcpy(void *dest, const void *src, unsigned int size);
 // One tcp_pcb_listen is needed for each TCPServer.
 // Each requires 72 bytes of RAM.
 #ifndef MEMP_NUM_TCP_PCB_LISTEN
-#define MEMP_NUM_TCP_PCB_LISTEN     4
+#define MEMP_NUM_TCP_PCB_LISTEN     6
 #endif
 
 // One is tcp_pcb needed for each TCPSocket.
 // Each requires 196 bytes of RAM.
 #ifndef MEMP_NUM_TCP_PCB
-#define MEMP_NUM_TCP_PCB            12
+#define MEMP_NUM_TCP_PCB            20
 #endif
 // One udp_pcb is needed for each UDPSocket.
 // Each requires 84 bytes of RAM (total rounded to multiple of 512).
 #ifndef MEMP_NUM_UDP_PCB
-#define MEMP_NUM_UDP_PCB            8
+#define MEMP_NUM_UDP_PCB            4
 #endif
 
 // Number of non-pool pbufs.
@@ -296,7 +296,7 @@ extern void hw_memcpy(void *dest, const void *src, unsigned int size);
 // One netconn is needed for each UDPSocket, TCPSocket or TCPServer.
 // Each requires 236 bytes of RAM (total rounded to multiple of 512).
 #ifndef MEMP_NUM_NETCONN
-#define MEMP_NUM_NETCONN            12
+#define MEMP_NUM_NETCONN            20
 #endif
 
 /**
