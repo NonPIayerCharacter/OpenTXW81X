@@ -1,8 +1,8 @@
-#include "lwip\sockets.h"
-#include "lwip\netif.h"
-#include "lwip\dns.h"
-#include "lwip\api.h"
-#include "lwip\tcp.h"
+#include "lwip/sockets.h"
+#include "lwip/netif.h"
+#include "lwip/dns.h"
+#include "lwip/api.h"
+#include "lwip/tcp.h"
 
 #include "rtsp_common.h"
 #include "osal/string.h"

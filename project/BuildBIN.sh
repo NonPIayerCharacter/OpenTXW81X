@@ -27,8 +27,8 @@ fi
 
 cp parameter.bincfg parameter.cfg
 
-BinScript.exe BinScript.BinScript
-makecode.exe
+./BinScript.exe BinScript.BinScript
+./makecode.exe
 
 #crc.exe crc.ini
 #BinScript.exe BinScript_Bin2Hex.BinScript

@@ -16,7 +16,7 @@
  * Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#include "lwip\sockets.h"
+#include "lwip/sockets.h"
 #include "list.h"
 #include "lib/net/eloop/eloop.h"
 

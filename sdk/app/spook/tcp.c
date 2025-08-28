@@ -18,11 +18,11 @@
 
 #include <stdio.h>
 
-#include "lwip\sockets.h"
-#include "lwip\netif.h"
-#include "lwip\dns.h"
-//#include "lwip\fcntl.h"
-#include "lwip\api.h"
+#include "lwip/sockets.h"
+#include "lwip/netif.h"
+#include "lwip/dns.h"
+//#include "lwip/fcntl.h"
+#include "lwip/api.h"
 
 #include "typesdef.h"
 //#include <linux/linux_mutex.h>

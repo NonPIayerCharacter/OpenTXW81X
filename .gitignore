@@ -5,3 +5,5 @@ project/obj/
 fpv_app_umac*
 cdkws.mk
 project.map
+*.o
+*.d

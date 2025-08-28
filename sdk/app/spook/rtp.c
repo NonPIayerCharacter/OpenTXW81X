@@ -16,12 +16,12 @@
  * Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 #include <stdio.h>
-#include "lwip\sockets.h"
-#include "lwip\netif.h"
-#include "lwip\dns.h"
-//#include "lwip\fcntl.h"
-#include "lwip\api.h"
-#include "lwip\tcp.h"
+#include "lwip/sockets.h"
+#include "lwip/netif.h"
+#include "lwip/dns.h"
+//#include "lwip/fcntl.h"
+#include "lwip/api.h"
+#include "lwip/tcp.h"
 
 #include <event.h>
 #include <log.h>

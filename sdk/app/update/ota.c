@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include "tx_platform.h"
-#include "lwip\sockets.h"
-#include "lwip\netif.h"
-#include "lwip\dns.h"
-//#include "lwip\fcntl.h"
-#include "lwip\api.h"
-#include "lwip\tcp.h"
+#include "lwip/sockets.h"
+#include "lwip/netif.h"
+#include "lwip/dns.h"
+//#include "lwip/fcntl.h"
+#include "lwip/api.h"
+#include "lwip/tcp.h"
 
 #include <event.h>
 #include <log.h>

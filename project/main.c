@@ -55,7 +55,7 @@
 #include "audio_app/audio_dac.h"
 #include "stream_frame.h"
 #include "test_demo/test_demo.h"
-#include "atcmd.c"
+//#include "atcmd.c"
 #include "keyWork.h"
 #include "flashdisk/flashdisk.h"
 #include "osal_file.h"
@@ -944,11 +944,11 @@ __init static void app_network_init()
 #endif
 
 
-#if SDH_EN && FS_EN   && OPENDML_EN
-    extern void recv_record_Server(int port);
-    recv_record_Server(43210);
-
-#endif
+//#if SDH_EN && FS_EN   && OPENDML_EN
+//    extern void recv_record_Server(int port);
+//    recv_record_Server(43210);
+//
+//#endif
 
 
 #ifdef CONFIG_UMAC4
@@ -1071,27 +1071,27 @@ void hardware_init(uint8 vcam)
 
 
 
-#if LCD_EN
-
-
-    #if LVGL_STREAM_ENABLE == 1
-	uint16_t w,h;
-    uint16_t screen_w,screen_h;
-    uint8_t rotate,video_rotate;
-    extern stream *lvgl_R_osd_stream(const char *name);
-    extern stream *osd_show_stream(const char *name);
-    extern stream *yuv_recv_stream(const char *name);
-    lcd_hardware_init(&w,&h,&rotate,&screen_w,&screen_h,&video_rotate);
-    lcd_arg_setting(w,h,rotate,screen_w,screen_h,video_rotate);
-    lcd_driver_init((void*)lvgl_R_osd_stream(R_OSD_ENCODE),(void*)osd_show_stream(R_OSD_SHOW),(void*)yuv_recv_stream(R_VIDEO_P1),(void*)yuv_stream(R_VIDEO_P0));
-
-    #else
-		uint16_t w,h;
-		uint8_t rotate;
-	    void lcd_module_run(uint16_t *w,uint16_t *h,uint8_t *rotate);	
-        lcd_module_run(&w,&h,&rotate);
-    #endif
-#endif
+//#if LCD_EN
+//
+//
+//    #if LVGL_STREAM_ENABLE == 1
+//	uint16_t w,h;
+//    uint16_t screen_w,screen_h;
+//    uint8_t rotate,video_rotate;
+//    extern stream *lvgl_R_osd_stream(const char *name);
+//    extern stream *osd_show_stream(const char *name);
+//    extern stream *yuv_recv_stream(const char *name);
+//    lcd_hardware_init(&w,&h,&rotate,&screen_w,&screen_h,&video_rotate);
+//    lcd_arg_setting(w,h,rotate,screen_w,screen_h,video_rotate);
+//    lcd_driver_init((void*)lvgl_R_osd_stream(R_OSD_ENCODE),(void*)osd_show_stream(R_OSD_SHOW),(void*)yuv_recv_stream(R_VIDEO_P1),(void*)yuv_stream(R_VIDEO_P0));
+//
+//    #else
+//		uint16_t w,h;
+//		uint8_t rotate;
+//	    void lcd_module_run(uint16_t *w,uint16_t *h,uint8_t *rotate);	
+//        lcd_module_run(&w,&h,&rotate);
+//    #endif
+//#endif
 
 #if DVP_EN
     bool csi_open();
@@ -1121,34 +1121,34 @@ void hardware_init(uint8 vcam)
 #endif
     
 
-#if (USB_EN && RTT_USB_EN)
-	#if (USB_DETECT_EN && !USB_HOST_EN)
-        extern void hg_usb_connect_detect_init(void);
-		hg_usb_connect_detect_init();
-	#else
-		#if USB_HOST_EN
-            extern rt_err_t hg_usbh_register(rt_uint32_t devid);
-			hg_usbh_register(HG_USB_HOST_CONTROLLER_DEVID);
-		#else 
-            extern void hg_usbd_class_driver_register();
-            extern int hg_usbd_register(rt_uint32_t devid);
-			hg_usbd_class_driver_register();
-			hg_usbd_register(HG_USB_DEV_CONTROLLER_DEVID);
-		#endif
-	#endif
+//#if (USB_EN && RTT_USB_EN)
+//	#if (USB_DETECT_EN && !USB_HOST_EN)
+//        extern void hg_usb_connect_detect_init(void);
+//		hg_usb_connect_detect_init();
+//	#else
+//		#if USB_HOST_EN
+//            extern rt_err_t hg_usbh_register(rt_uint32_t devid);
+//			hg_usbh_register(HG_USB_HOST_CONTROLLER_DEVID);
+//		#else 
+//            extern void hg_usbd_class_driver_register();
+//            extern int hg_usbd_register(rt_uint32_t devid);
+//			hg_usbd_class_driver_register();
+//			hg_usbd_register(HG_USB_DEV_CONTROLLER_DEVID);
+//		#endif
+//	#endif
+//
+//
+//#endif
+//
+//#if (USB_EN && !RTT_USB_EN)
+//    void hg_usb_test(void);
+//    hg_usb_test();
+//#endif
 
-
-#endif
-
-#if (USB_EN && !RTT_USB_EN)
-    void hg_usb_test(void);
-    hg_usb_test();
-#endif
-
-#if LCD_EN
-	void lvgl_init(uint16_t w,uint16_t h,uint8_t rotate);
-	lvgl_init(w,h,rotate);
-#endif
+//#if LCD_EN
+//	void lvgl_init(uint16_t w,uint16_t h,uint8_t rotate);
+//	lvgl_init(w,h,rotate);
+//#endif
 
 
 
@@ -1273,7 +1273,7 @@ int main(void)
     sys_event_take(SYS_EVENT(SYS_EVENT_NETWORK, 0), sysevt_network_event, 0);
     sys_event_take(SYS_EVENT(SYS_EVENT_LTE, 0), sysevt_lte_event, 0);
     sys_event_take(SYS_EVENT(SYS_EVENT_BLE, 0), sysevt_ble_event, 0);
-    sys_atcmd_init();
+    //sys_atcmd_init();
     sys_wifi_init();
     // enter wifi test mode
     if(system_is_wifi_test_mode()) {
