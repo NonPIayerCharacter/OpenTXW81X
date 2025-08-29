@@ -522,7 +522,7 @@ static int opcode_func(stream *s,void *priv,int opcode)
             if(data->data)
             {
                 //因为是转发,所以这里移除的话是交给原来的方法移除
-                _os_printf("$");
+                //_os_printf("$");
                 free_data(data->data);
                 data->data = NULL;
             }

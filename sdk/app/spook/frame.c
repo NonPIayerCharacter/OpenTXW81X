@@ -263,7 +263,7 @@ void spook_send_thread_stream(struct rtsp_priv *r)
 			audio_f = 	GET_FRAME(audio_s);
 			if(audio_f)
 			{
-				_os_printf("A");
+				//_os_printf("A");
 				audio = audio_ex->jf;//ex->slave_cur->f;
 				audio->get_f = audio_f;
 				audio->length = GET_DATA_LEN(audio_f);
@@ -299,7 +299,7 @@ void spook_send_thread_stream(struct rtsp_priv *r)
 
 				if((os_jiffies() - time_for_count) > 1000){
 						time_for_count = os_jiffies();
-						_os_printf("cnt_num:%d\r\n",cnt_num);
+						//_os_printf("cnt_num:%d\r\n",cnt_num);
 						cnt_num = 0;
 				}
 				jpeg->length = GET_DATA_LEN(get_f);;
@@ -314,7 +314,7 @@ void spook_send_thread_stream(struct rtsp_priv *r)
 				* callback: get_back_frame( struct frame *f, void *d )
 				* d: (jpeg_encoder *)en
 				*/
-				_os_printf("#");
+				//_os_printf("#");
 				//_os_printf("ex:%X\tf:%X\n",ex,ex->f);
 				ex->f( jpeg, ex->d );
 		}
@@ -325,7 +325,7 @@ void spook_send_thread_stream(struct rtsp_priv *r)
 			count_times++;
 			if(count_times>25)
 			{
-				_os_printf("time:%lld\n",csi_kernel_get_ticks()-time);
+				//_os_printf("time:%lld\n",csi_kernel_get_ticks()-time);
 				count_times = 0;
 				time = csi_kernel_get_ticks();
 			}

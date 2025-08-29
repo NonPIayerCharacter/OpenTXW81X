@@ -1,7 +1,7 @@
 #include "sys_config.h"
 #include "typesdef.h"
 #include "lib/video/dvp/cmos_sensor/csi.h"
-#include "lib/video/dvp/cmos_sensor/csi_V2.h"
+#include "lib/video/dvp/cmos_sensor/csi_v2.h"
 #include "devid.h"
 #include "hal/gpio.h"
 #include "osal/irq.h"
@@ -1118,7 +1118,7 @@ void vpp_hsie_isr(uint32 irq,uint32 image_h,uint32  param){
 
 void vpp_vsie_isr(uint32 irq,uint32 dev,uint32 param){	
 	vs_isr++;
-	set_time_watermark(2022,9,1,20,1,(os_jiffies()/1000)%60);
+	//set_time_watermark(2022,9,1,20,1,(os_jiffies()/1000)%60);
 }
 
 void vpp_data_done(uint32 irq,uint32 dev,uint32 param){
@@ -1817,11 +1817,11 @@ bool csi_yuv_mode(){
 	
 	vpp_set_water0_color(vpp_test,0xff,0x80,0x80);
 	vpp_set_water0_bitmap(vpp_test,(uint32)ele_lib);
-	vpp_set_water0_locate(vpp_test,50,36);
+	vpp_set_water0_locate(vpp_test,0,0);
 	vpp_set_water0_contrast(vpp_test,0);
 	vpp_set_watermark0_charsize_and_num(vpp_test,12,32,19);
 	vpp_set_watermark0_mode(vpp_test,1);
-	set_time_watermark(2222,22,22,22,22,22);
+	set_time_watermark(0000,00,00,00,00,00);
 	vpp_set_water0_rc(vpp_test,0);
 
 
@@ -1861,8 +1861,8 @@ bool csi_yuv_mode(){
 #endif
 	vpp_set_mode(vpp_test,IMAGE_FORMAT);
 
-	vpp_set_watermark0_enable(vpp_test,1);
-	vpp_set_watermark1_enable(vpp_test,1);
+	vpp_set_watermark0_enable(vpp_test,0);
+	vpp_set_watermark1_enable(vpp_test,0);
 	
 #if IPF_EN
 //	vpp_set_ifp_en(vpp_test,1);

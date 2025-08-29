@@ -22,8 +22,8 @@
  ******************************************************************************/
 MEMORY
 {
-		SRAM0   : ORIGIN = 0x20041000 , LENGTH = 0x2c00   /*SRAM0 16 - 4KB - 1k*/
-    SRAM   : ORIGIN = 0x20000004 , LENGTH = 0x3fffc    /* on-chip SRAM 288KB */
+/*		SRAM0   : ORIGIN = 0x20041000 , LENGTH = 0x2c00 */  /*SRAM0 16 - 4KB - 1k*/
+    SRAM   : ORIGIN = 0x20000004 , LENGTH = 0x431fc    /* on-chip SRAM 288KB */
    /* SRAM   : ORIGIN = 0x38000000 , LENGTH = 0x400000 */
     FLASH  : ORIGIN = 0x18000000 , LENGTH = 0x200000 
     PSRAM  : ORIGIN = 0x38000000 , LENGTH = 0x400000 
@@ -31,10 +31,10 @@ MEMORY
 
 __heap_size = 0x11000;
 
-PROVIDE (__ram_end  = 0x20040000);
-PROVIDE (__heap_end = 0x20040000);
-PROVIDE (__sleep_data_start = 0x20040004);
-PROVIDE (__sleep_data_stop  = 0x20040a00);
+PROVIDE (__ram_end  = 0x20043200);
+PROVIDE (__heap_end = 0x20043200);
+PROVIDE (__sleep_data_start = 0x20043200);
+PROVIDE (__sleep_data_stop  = 0x20043bfc);
 PROVIDE (__psram_heap_end = 0x38400000);
 
 REGION_ALIAS("REGION_TEXT",    FLASH);
@@ -47,7 +47,7 @@ REGION_ALIAS("REGION_NOLOAD_PSRAM",    PSRAM);
 REGION_ALIAS("REGION_DATA2",    SRAM);
 REGION_ALIAS("REGION_OTA_VMA",    SRAM);
 REGION_ALIAS("REGION_TEXT2",    SRAM);
-REGION_ALIAS("REGION_DSLEEP",    SRAM0);
+REGION_ALIAS("REGION_DSLEEP",    SRAM);
 
 ENTRY(Reset_Handler)
 SECTIONS
@@ -293,22 +293,4 @@ SECTIONS
 /* ASSERT(DEFINED(ROM_FUNC_ENABLE), "please disable ROM Functions in ld file") */
 /* ASSERT(ADDR(.text) < 0x20000068, "ROM Functions data area conflict!!!")*/
 
-  memset                              = 0X00000584; 
-  memcpy                              = 0X00000624; 
-  memcmp                              = 0X000006A4; 
-  strcasecmp                          = 0X0000232C; 
-  strncasecmp                         = 0X00002370; 
-  ll_qspi_xip_erase                   = 0X0000680C; 
-  ll_qspi_xip_read                    = 0X00006854; 
-  ll_qspi_xip_write                   = 0X00006898; 
-  ll_qspi_xip_opt_enter               = 0X00006728; 
-  ll_qspi_xip_opt_exit                = 0X0000679C; 
-  ll_qspi_enter_xip_mode              = 0X00006180; 
-  ll_qspi_exit_xip_mode               = 0X00006204; 
-  ll_qspi_stig                        = 0X000060D8; 
-  ll_ospi_psram_mrr                   = 0X00003798; 
-  ll_ospi_psram_mrw                   = 0X0000380C; 
-  ll_ospi_stig                        = 0X00003680; 
-  qspi_flash_erase_handle             = 0x00002d5c; 
-  ll_qspi_cmd_busy_wait               = 0x00006120;
-
+INPUT(utilities/romcode.ld)

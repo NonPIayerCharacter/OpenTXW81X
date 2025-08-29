@@ -857,7 +857,7 @@ int fd_send_data(int fd,unsigned char *sendbuf,int sendLen,int times)
 	}
 	if(size<0)
 	{
-		_os_printf("%s err size:%d\n",__FUNCTION__,size);
+		//_os_printf("%s err size:%d\n",__FUNCTION__,size);
 		return -1;
 
 	}

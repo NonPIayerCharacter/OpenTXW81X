@@ -85,7 +85,7 @@ void prc_finish(void *d)
 {
 	struct prc_pixel *pixel_prc = (struct prc_pixel*)d;
 	pixel_prc->hardward_ready = 1;
-	_os_printf("$");
+	//_os_printf("$");
 }
 
 

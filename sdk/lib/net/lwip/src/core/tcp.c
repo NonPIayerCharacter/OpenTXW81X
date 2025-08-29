@@ -1889,8 +1889,6 @@ tcp_alloc(u8_t prio)
       /* adjust err stats: memp_malloc failed above */
       MEMP_STATS_DEC(err, MEMP_TCP_PCB);
     }
-  }else{
-      printf("NO FREE TCP_PCB! total:%d\r\n", MEMP_NUM_TCP_PCB);
   }
 
   if (pcb != NULL) {

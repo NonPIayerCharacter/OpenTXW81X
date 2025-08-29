@@ -675,7 +675,7 @@ void jpeg_in_sram(struct list_head  *get_f)
 			j->malloc_mem = dest_list;
 			del_jpeg_frame(get_f);
 			//统一发送数据,这个时候,其他流才有可能获取到数据
-            _os_printf("$");
+            //_os_printf("$");
 			send_data_to_stream(data_s);
 		}
 	}
