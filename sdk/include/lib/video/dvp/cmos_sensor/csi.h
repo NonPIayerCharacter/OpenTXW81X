@@ -314,6 +314,10 @@ void vpp_put_psram(uint32 yuvbuf_addr,uint32 s_w,uint32 s_h);
 #define DEV_SENSOR_SP0828           (0||CMOS_AUTO_LOAD)
 #endif
 
+#ifndef DEV_SENSOR_SP0A20
+#define DEV_SENSOR_SP0A20           (0||CMOS_AUTO_LOAD)
+#endif
+
 #if DEV_SENSOR_OV7725
 extern const _Sensor_Ident_ ov7725_init;
 extern SENSOR_OP_SECTION const _Sensor_Adpt_ ov7725_cmd;
@@ -449,6 +453,11 @@ extern SENSOR_OP_SECTION const _Sensor_Adpt_ hi704_cmd;
 #if DEV_SENSOR_SP0828
 extern const _Sensor_Ident_ sp0828_init;
 extern SENSOR_OP_SECTION const _Sensor_Adpt_ sp0828_cmd;
+#endif
+
+#if DEV_SENSOR_SP0A20
+extern const _Sensor_Ident_ sp0a20_init;
+extern SENSOR_OP_SECTION const _Sensor_Adpt_ sp0a20_cmd;
 #endif
 
 #endif
